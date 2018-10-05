@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Assignment2ModelStoreContainer" CdmEntityContainer="Assignment2Entities">
+    <EntitySetMapping Name="reviews">
+      <EntityTypeMapping TypeName="Assignment2Model.review">
+        <MappingFragment StoreEntitySet="review">
+          <ScalarProperty Name="reviewId" ColumnName="reviewId" />
+          <ScalarProperty Name="songId" ColumnName="songId" />
+          <ScalarProperty Name="rating" ColumnName="rating" />
+          <ScalarProperty Name="review1" ColumnName="review" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="songs">
+      <EntityTypeMapping TypeName="Assignment2Model.song">
+        <MappingFragment StoreEntitySet="song">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="songName" ColumnName="songName" />
+          <ScalarProperty Name="artistName" ColumnName="artistName" />
+          <ScalarProperty Name="yearPublished" ColumnName="yearPublished" />
+          <ScalarProperty Name="owned" ColumnName="owned" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
