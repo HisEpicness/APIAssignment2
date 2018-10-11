@@ -189,20 +189,20 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="Assignment2.Context.cs">
+    <Compile Include="Assignment1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Assignment2.Context.tt</DependentUpon>
+      <DependentUpon>Assignment1.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Assignment2.cs">
+    <Compile Include="Assignment1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Assignment2.tt</DependentUpon>
+      <DependentUpon>Assignment1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Assignment2.Designer.cs">
+    <Compile Include="Assignment1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Assignment2.edmx</DependentUpon>
+      <DependentUpon>Assignment1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ReviewsController.cs" />
@@ -215,23 +215,23 @@
     <Compile Include="Models\SongsModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="review.cs">
-      <DependentUpon>Assignment2.tt</DependentUpon>
+      <DependentUpon>Assignment1.tt</DependentUpon>
     </Compile>
     <Compile Include="song.cs">
-      <DependentUpon>Assignment2.tt</DependentUpon>
+      <DependentUpon>Assignment1.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
-    <Content Include="Assignment2.Context.tt">
+    <Content Include="Assignment1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Assignment2.Context.cs</LastGenOutput>
-      <DependentUpon>Assignment2.edmx</DependentUpon>
+      <DependentUpon>Assignment1.edmx</DependentUpon>
+      <LastGenOutput>Assignment1.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Assignment2.tt">
+    <Content Include="Assignment1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Assignment2.edmx</DependentUpon>
-      <LastGenOutput>Assignment2.cs</LastGenOutput>
+      <DependentUpon>Assignment1.edmx</DependentUpon>
+      <LastGenOutput>Assignment1.cs</LastGenOutput>
     </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -264,12 +264,12 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <EntityDeploy Include="Assignment2.edmx">
+    <EntityDeploy Include="Assignment1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Assignment2.Designer.cs</LastGenOutput>
+      <LastGenOutput>Assignment1.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Assignment2.edmx.diagram">
-      <DependentUpon>Assignment2.edmx</DependentUpon>
+    <Content Include="Assignment1.edmx.diagram">
+      <DependentUpon>Assignment1.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Assignment2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="review">
+    <Key>
+      <PropertyRef Name="reviewId" />
+    </Key>
+    <Property Name="reviewId" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="songId" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="rating" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="review" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="song">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="songName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="artistName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="yearPublished" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="Assignment2ModelStoreContainer">
+    <EntitySet Name="review" EntityType="Self.review" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="song" EntityType="Self.song" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

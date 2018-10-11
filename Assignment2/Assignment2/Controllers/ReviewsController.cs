@@ -1,6 +1,7 @@
 ﻿using Assignment2.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -12,9 +13,9 @@ namespace Assignment2.Controllers
     {
 
         // GET: api/Songs
-        public IHttpActionResult GetAllReviews()
+        public List<ReviewsModel> GetAllReviews()
         {
-            IList<ReviewsModel> reviewList = null;
+            List<ReviewsModel> reviewList = null;
 
             using (var ctx = new Assignment2Entities())
             {
@@ -30,14 +31,14 @@ namespace Assignment2.Controllers
 
             if (reviewList.Count == 0)
             {
-                return NotFound();
+                return null;
             }
 
-            return Ok(reviewList);
+            return reviewList;
         }
 
         // GET: api/Reviews/{id}
-        public IHttpActionResult GetReviewById(string id)
+        public ReviewsModel GetReviewById(string id)
         {
             ReviewsModel selReview = null;
 
@@ -56,25 +57,66 @@ namespace Assignment2.Controllers
 
             if (selReview == null)
             {
-                return NotFound();
+                return null;
             }
 
-            return Ok(selReview);
+            return selReview;
         }
 
         // POST: api/Reviews
-        public void Post([FromBody]string value)
+        public string PostReview(review revPost)
         {
+            using (var ctx = new Assignment2Entities())
+            {
+                if (!ModelState.IsValid)
+                {
+                    return "Post Failed";
+                }
+                ctx.reviews.Add(revPost);
+                ctx.SaveChanges();
+                return "Success";
+            }
         }
 
         // PUT: api/Reviews/5
-        public void Put(int id, [FromBody]string value)
+        public string PutReview(review revPut)
         {
+            using (var ctx = new Assignment2Entities())
+            {
+                if (!ModelState.IsValid)
+                {
+                    return "Put Failed";
+                }
+                ctx.Entry(revPut).State = EntityState.Modified;
+
+                ctx.SaveChanges();
+                return "Success";
+            }
+
         }
 
         // DELETE: api/Reviews/5
-        public void Delete(int id)
+        public string DeleteReview(string id)
         {
+            review selRev = null;
+
+            using (var ctx = new Assignment2Entities())
+            {
+                selRev = ctx.reviews
+                   .Where(s => (s.reviewId).ToString() == id)
+                   .FirstOrDefault();
+
+                if (selRev == null)
+                {
+                    return "Not a valid song";
+                }
+                else
+                {
+                    ctx.reviews.Remove(selRev);
+                    ctx.SaveChanges();
+                    return "Success";
+                }
+            }
         }
     }
 }

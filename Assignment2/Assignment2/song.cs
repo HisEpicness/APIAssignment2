@@ -18,6 +18,5 @@ namespace Assignment2
         public string songName { get; set; }
         public string artistName { get; set; }
         public decimal yearPublished { get; set; }
-        public bool owned { get; set; }
     }
 }
