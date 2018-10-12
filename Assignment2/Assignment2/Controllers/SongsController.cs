@@ -16,6 +16,7 @@ namespace Assignment2.Controllers
         {
             List<SongsModel> songsList = null;
 
+            //grabs all songs
             using (var ctx = new Assignment2Entities())
             {
                 songsList = ctx.songs
@@ -28,6 +29,7 @@ namespace Assignment2.Controllers
                     }).ToList<SongsModel>();
             }
 
+            //returns null if no songs
             if (songsList.Count == 0)
             {
                 return null;
@@ -41,6 +43,7 @@ namespace Assignment2.Controllers
         {
             SongsModel selSong = null;
 
+            //grabs song based on passed id
             using (var ctx = new Assignment2Entities())
             {
                 selSong = ctx.songs
@@ -54,6 +57,7 @@ namespace Assignment2.Controllers
                    }).FirstOrDefault<SongsModel>();
             }
 
+            //return null if no song found
             if (selSong == null)
             {
                 return null;
@@ -72,6 +76,8 @@ namespace Assignment2.Controllers
                 {
                     return "Post Failed";
                 }
+
+                //inserts song into db
                 ctx.songs.Add(songPost);
                 ctx.SaveChanges();
                 return "Success";
@@ -87,6 +93,7 @@ namespace Assignment2.Controllers
                 {
                     return "Put Failed";
                 }
+                //edits song 
                 ctx.Entry(songPut).State = EntityState.Modified;
                 
                 ctx.SaveChanges();
@@ -102,16 +109,19 @@ namespace Assignment2.Controllers
 
             using (var ctx = new Assignment2Entities())
             {
+                //grabs song based on id
                 selSong = ctx.songs
                    .Where(s => (s.id).ToString() == id)
                    .FirstOrDefault();
 
+                //returns error if song not found
                 if (selSong == null)
                 {
                     return "Not a valid song";
                 }
                 else
                 {
+                    //deletes song
                     ctx.songs.Remove(selSong);
                     ctx.SaveChanges();
                     return "Success";

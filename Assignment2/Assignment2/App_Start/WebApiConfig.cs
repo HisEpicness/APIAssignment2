@@ -14,6 +14,7 @@ namespace Assignment2
             // Web API routes
             config.MapHttpAttributeRoutes();
 
+            //sets up routes for api
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",

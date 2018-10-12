@@ -19,6 +19,7 @@ namespace Assignment2.Controllers
 
             using (var ctx = new Assignment2Entities())
             {
+                //grabs all reviews
                 reviewList = ctx.reviews
                 .Select(r => new ReviewsModel()
                 {
@@ -29,6 +30,7 @@ namespace Assignment2.Controllers
                 }).ToList<ReviewsModel>();
             }
 
+            //return null if no review found
             if (reviewList.Count == 0)
             {
                 return null;
@@ -44,6 +46,7 @@ namespace Assignment2.Controllers
 
             using (var ctx = new Assignment2Entities())
             {
+                //grabs selected review
                 selReview = ctx.reviews
                    .Where(r => (r.reviewId).ToString() == id)
                    .Select(r => new ReviewsModel()
@@ -55,6 +58,7 @@ namespace Assignment2.Controllers
                    }).FirstOrDefault<ReviewsModel>();
             }
 
+            //return null if not found
             if (selReview == null)
             {
                 return null;
@@ -72,6 +76,7 @@ namespace Assignment2.Controllers
                 {
                     return "Post Failed";
                 }
+                //inserts review
                 ctx.reviews.Add(revPost);
                 ctx.SaveChanges();
                 return "Success";
@@ -87,6 +92,7 @@ namespace Assignment2.Controllers
                 {
                     return "Put Failed";
                 }
+                //edits review
                 ctx.Entry(revPut).State = EntityState.Modified;
 
                 ctx.SaveChanges();
@@ -102,16 +108,19 @@ namespace Assignment2.Controllers
 
             using (var ctx = new Assignment2Entities())
             {
+                //finds review
                 selRev = ctx.reviews
                    .Where(s => (s.reviewId).ToString() == id)
                    .FirstOrDefault();
 
+                //return error if review not found
                 if (selRev == null)
                 {
                     return "Not a valid song";
                 }
                 else
                 {
+                    //deletes review
                     ctx.reviews.Remove(selRev);
                     ctx.SaveChanges();
                     return "Success";
